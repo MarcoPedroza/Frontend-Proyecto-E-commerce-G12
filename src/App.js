@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './componentes/Login';
+import CrearCuenta from './componentes/CrearCuenta';
+import Admin from './componentes/Admin';
+import Home from './componentes/Home';
+import CrearCategoria from './componentes/CrearCategoria';
+import CargarCategorias from './componentes/CargarCategorias';
+import ActualizarCategoria from './componentes/categorias/ActualizarCategoria';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact element= {<Home/>}/>
+        <Route path="/login" exact element= {<Login/>}/>
+        <Route path="/crear-cuenta" exact element= {<CrearCuenta/>}/>
+        <Route path="/admin" exact element= {<Admin/>}/>
+        <Route path="/crear-categoria" exact element= {<CrearCategoria/>}/>
+        <Route path="/buscar-categoria" exact element= {<CargarCategorias/>}/>
+        <Route path="/actualizar-categoria/:idCategoria" exact element= {<ActualizarCategoria/>}/>
+      </Routes>
+    </Router>
   );
 }
 
